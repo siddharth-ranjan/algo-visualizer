@@ -86,6 +86,12 @@ frontend changes are needed.
   **not** sandboxed — do not expose this to untrusted input without putting the
   run step in a container.
 
+## Further reading
+
+- [DESIGN.md](DESIGN.md) — the pipeline, trace format and view contracts.
+- [DECISIONS.md](DECISIONS.md) — why it is built this way, and what was rejected.
+- [CLAUDE.md](CLAUDE.md) — working notes and invariants for contributors.
+
 ## Layout
 
 ```

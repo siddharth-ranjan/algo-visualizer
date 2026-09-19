@@ -6,8 +6,11 @@ import { CodePane } from "./components/CodePane";
 import { Player } from "./components/Player";
 import { narrate } from "./lib/narrate";
 import { replay } from "./lib/replay";
-import { type RunResponse } from "./lib/trace";
+import { type RunResponse, type TraceEvent } from "./lib/trace";
 import { SAMPLE_INPUT, SAMPLE_SOURCE } from "./sample";
+
+/** Stable identity: a fresh [] each render would invalidate the replay memo. */
+const NO_EVENTS: TraceEvent[] = [];
 
 export function App() {
   const [source, setSource] = useState(SAMPLE_SOURCE);
@@ -20,7 +23,7 @@ export function App() {
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed] = useState(300);
 
-  const events = run?.events ?? [];
+  const events = run?.events ?? NO_EVENTS;
   const { snapshots: snaps, roots } = useMemo(() => replay(events), [events]);
   const sourceLines = useMemo(() => (run?.source ?? source).split("\n"), [run, source]);
 
