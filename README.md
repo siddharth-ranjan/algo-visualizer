@@ -107,3 +107,7 @@ frontend/
 backend/.venv/bin/python -m pytest backend/tests -q   # needs a JDK
 cd frontend && npx tsc -b
 ```
+
+## License
+
+MIT — see [LICENSE](LICENSE).
